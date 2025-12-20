@@ -1,8 +1,12 @@
 version: 0.0
-Resources:
-  - TargetService:
-      Type: AWS::EKS::Service
-      Properties:
-        ClusterName: brain-tasks-cluster
-        ServiceName: brain-tasks-service
-        Namespace: default
+os: linux
+
+files:
+  - source: /
+    destination: /home/ec2-user/app
+
+hooks:
+  AfterInstall:
+    - location: deploy.sh
+      timeout: 300
+      runas: root
