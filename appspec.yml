@@ -3,10 +3,10 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ec2-user/app
+    destination: /home/ec2-user/brain-tasks-app
 
 hooks:
   AfterInstall:
-    - location: deploy.sh
+    - location: scripts/deploy.sh
       timeout: 300
-      runas: root
+      runas: ec2-user
